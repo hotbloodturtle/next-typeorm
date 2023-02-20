@@ -1,3 +1,4 @@
+import "reflect-metadata"
 import { DataSource } from "typeorm"
 
 export const AppDataSource = new DataSource({
@@ -13,3 +14,5 @@ export const AppDataSource = new DataSource({
     logging: true,
     synchronize: false,
 })
+
+export const isInitialized = AppDataSource.initialize().then(ds => ds.isInitialized);
